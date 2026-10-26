@@ -1,0 +1,13 @@
+docker container run -it ubuntu bash
+root@cecfeb05d80e:/# apt-get update && apt-get install -y curl nano
+[... setup logs ...]
+root@cecfeb05d80e:/# mkdir -p /usr/src/app
+root@cecfeb05d80e:/# echo "console.log('Hello World')" > /usr/src/app/index.js
+root@cecfeb05d80e:/# curl -sL https://deb.nodesource.com/setup_24.x | bash
+[... node setup logs ...]
+root@cecfeb05d80e:/# apt install -y nodejs
+[... node installation logs ...]
+root@cecfeb05d80e:/# node /usr/src/app/index.js
+Hello World
+root@cecfeb05d80e:/# exit
+exit
