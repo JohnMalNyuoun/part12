@@ -1,0 +1,16 @@
+AzureAD+Student@DESKTOP-I4HOAEF MINGW64 ~/Desktop/Part12/fs-containers (main)
+$ docker container run -it ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+d9d511d19a19: Pull complete 
+435bf5c20694: Pull complete 
+2e7e55092090: Download complete 
+Digest: sha256:c098726dd9b9733f3e885f8de0ef375206a311b0a317eadc40d347b1115fb944
+Status: Downloaded newer image for ubuntu:latest
+root@8e4c668545a2:/# mkdir -p /usr/src/app
+root@8e4c668545a2:/# touch /usr/src/app/index.js
+root@8e4c668545a2:/# exit
+exit
+
+AzureAD+Student@DESKTOP-I4HOAEF MINGW64 ~/Desktop/Part12/fs-containers (main)
+$ mkdir -p answers
