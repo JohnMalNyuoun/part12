@@ -29,21 +29,27 @@ const findByIdMiddleware = async (req, res, next) => {
 
 /* DELETE todo. */
 singleRouter.delete('/', async (req, res) => {
-  await req.todo.delete()  
+  await req.todo.deleteOne()  
   res.sendStatus(200);
 });
 
 /* GET todo. */
 singleRouter.get('/', async (req, res) => {
-  res.sendStatus(405); // Implement this
+  res.json(req.todo); // Return the pre-fetched todo from middleware
 });
 
 /* PUT todo. */
 singleRouter.put('/', async (req, res) => {
-  res.sendStatus(405); // Implement this
+  const { text, done } = req.body;
+
+  // Update fields if they are provided in the request body
+  if (text !== undefined) req.todo.text = text;
+  if (done !== undefined) req.todo.done = done;
+
+  const updatedTodo = await req.todo.save();
+  res.json(updatedTodo);
 });
 
 router.use('/:id', findByIdMiddleware, singleRouter)
-
 
 module.exports = router;
