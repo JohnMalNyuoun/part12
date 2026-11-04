@@ -1,0 +1,22 @@
+$ docker exec -it todo-backend-mongo-1 bash
+root@...:/# mongosh -u root -p example
+Current Mongosh Log ID: ...
+Connecting to: mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&authSource=admin
+Using MongoDB:  8.x.x
+Connecting to:  mongodb://root:example@127.0.0.1:27017/?authSource=admin
+
+test> use the_database
+switched to db the_database
+
+the_database> db.todos.insertOne({ text: "Increase the number of tools in my tool belt", done: false })
+{
+  acknowledged: true,
+  insertedObjectId: ObjectId("...")
+}
+
+the_database> db.todos.find({})
+[
+  { _id: ObjectId("..."), text: 'Write code', done: true },
+  { _id: ObjectId("..."), text: 'Learn about containers', done: false },
+  { _id: ObjectId("..."), text: 'Increase the number of tools in my tool belt', done: false }
+]

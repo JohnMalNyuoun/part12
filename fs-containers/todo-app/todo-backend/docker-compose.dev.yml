@@ -1,9 +1,13 @@
 version: '3.8'
 
 services:
-  backend:
-    build: .
+  mongo:
+    image: mongo
     ports:
-      - "3000:3000"
+      - 3456:27017
     environment:
-      - NODE_ENV=development
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    volumes:
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
