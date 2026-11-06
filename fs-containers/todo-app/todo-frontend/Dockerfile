@@ -8,6 +8,9 @@ RUN npm ci
 
 COPY . .
 
+# Run component tests as part of the image build.
+RUN npm test
+
 # Declare build-time argument for backend URL
 ARG VITE_BACKEND_URL
 ENV VITE_BACKEND_URL=$VITE_BACKEND_URL
