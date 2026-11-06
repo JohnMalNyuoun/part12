@@ -10,4 +10,6 @@ You can build static files for production release with `npm run build`
 
 ## Environment variables
 
-Use env VITE_BACKEND_URL to set where the backend for this application is
+The frontend connects to `http://localhost:3000` by default. Set
+`VITE_BACKEND_URL` to override this when the backend is hosted elsewhere. Start
+the backend and MongoDB before using the todo list.
